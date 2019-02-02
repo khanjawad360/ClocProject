@@ -9,14 +9,228 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  	<style type="text/css">
+  		
+  	</style>
 </head>
 <body>
-	<div class="">
-  		<img class="img-fluid" src="cropcloc.jpg" alt="Cloud Cover" width="100%" height=""> 
-		<div class="bottom-center">Cloud Computing</div>
+	<div>
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+		  <a class="navbar-brand" href="#">WELCOME</a>
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">ABOUT ME</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">SKILLS</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">STORY</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">CONTACT ME</a>
+		    </li>
+		  </ul>
+		</nav>
+  		<img class="img-fluid" src="cropcloc.jpg" alt="Cloud Cover" width="100%">
 	</div>
-	<div class="container">
-		
+	<div class="container" style="background-color:">
+	<br>
+	<section id="ABOUTME">
+	<h1 class="text-center">Jawad Khan</h1>
+		<h4 class="text-center">MS Student (UET Peshawar) | Web Developer (Precise Tech, Peshawar)</h4>
+		<hr>
+	<br>
+	
+		<div class="row">
+			<div class="col-md-4">
+				<img src="ceo.jpg" width="250" height="250" style="border-radius: 100%">
+			</div>
+			<div class="col-md-8">
+				<h4 class="text-center">ABOUT ME</h4>
+				<p style="text-align: justify;">I am a passionate and hardworking student in my studies and research as well as a self-motivated and driven web developer who welcomes challenging
+				projects with a high level of experience and enjoys working with all
+				sorts of personalities.	I pride myself on my ability to face every business challenge head on – and I thoroughly examine all options and seek the opinion of my peers and superiors before I decide on a solution. As a web developer, I enjoy using my obsessive skill to detail, my speciality is play with new technology, and my mission-driven work ethic to literally change the world. That's why I’m excited to make a big impact at a high growth company. Interested in a role with a company that promotes best practices and offers a wealth of customer projects.</p>
+				<p style="text-align: center;">I am currently focusing on PHP frameworks i.e <br><a href="https://laravel.com/" target="_blank">Laravel</a>, <a href="https://codeigniter.com/" target="_blank">CodeIgnitor</a></p>
+			</div>
+		</div>
+		<hr>
+		</section>
+		<section id="SKILLS">
+			<div>
+				<br>
+				<h1 class="text-center">My Skills</h1>
+				<br>
+				<div class="row">
+					<div class="col-md-3">
+						<img src="skill1.png" width="200" height="200" title="HTML5">
+					</div>
+					<div class="col-md-3">
+						<img src="skill2.png" width="200" height="200" title="Materialize CSS">
+					</div>
+					<div class="col-md-3">
+						<img src="skill3.png" width="200" height="200" title="Javascript">
+					</div>
+					<div class="col-md-3">
+						<img src="skill4.png" width="200" height="200" title="Laravel">
+					</div>
+				</div>
+			</div>
+			<br>
+		</section>
+		<hr>
+		<section id="STORY">
+			<br>
+			<h1 class="text-center">CLOUD COMPUTING PROJECT STORY</h1>
+			<h4 class="text-center">CLOC PROJECT 02 / Group 04</h4>
+			<h1 class="text-center" style="color: blue">Detection of Water Leakage & Controlling Waterflow Remotely through Cloud</h1>
+			<div class="row">
+				<div class="offset-md-2 col-md-8">
+					<div style="text-align: center;">
+						<img src="savemotiv.png" width="400"><br>
+					</div>
+					<p>One of the biggest problems in the world is water scarcity. Almost all countries suffer from it and many of them cannot find the most effective solution to avoid this difficulty. The meaning of the world water crisis is very easy to understand, but solving it is very difficult.</p>
+					<p> We are using a <span style="color: blue">Water Flow Sensor</span> for detection of water leakage which is connected to <span style="color: blue">Arduino</span> which is a mini computer and that is further connected to a network. The figures below are showing the equipments we used in our project.</p>
+					<br>
+					<div style="text-align: center;">
+						<img src="sensor.png" width="500"><br><br>
+						<h5 class="text-center">Waterflow Sensor & Its Structure</h5>
+					</div>
+					<br><br>
+					<div style="text-align: center;">
+						<img src="arduino.png" width="500"><br><br>
+						<h5 class="text-center">Arduino, a Mini Computer System</h5>
+					</div>
+					<br><br>
+					<div style="text-align: center;">
+						<img src="system.png" width="500"><br><br>
+						<h5 class="text-center">A connected system for Demo</h5>
+					</div><br><br>
+					<h1 class="text-center">Code and Results</h1>
+					<div style="text-align: left !important;">
+						<pre>
+							<code>
+/*
+Water flow rate sensor -by Jawad Khan
+
+Measure the Water/liquid flow rate using this code. 
+Connect sensor to arduino, and the 
+signal line to arduino digital pin 2. 
+ */
+	byte statusLed    = 13;
+	byte sensorInterrupt = 0;
+	byte sensorPin = 2;
+// litre/minute of flow.
+	float calibrationFactor = 4.5;
+		volatile byte pulseCount;
+		float flowRate;
+		unsigned int flowMilliLitres;
+		unsigned long totalMilliLitres;
+		unsigned long oldTime;
+	void setup()
+		{							  
+// Initialize a serial connection for reporting values to the host
+		Serial.begin(9600);							   
+// Set up the status LED line as an output
+		pinMode(statusLed, OUTPUT);
+		digitalWrite(statusLed, HIGH);  // We have an active-low LED attached	  
+		pinMode(sensorPin, INPUT);
+		digitalWrite(sensorPin, HIGH);
+			pulseCount = 0;
+			flowRate = 0.0;
+			flowMilliLitres = 0;
+			totalMilliLitres = 0;
+			oldTime = 0;
+// The Hall-effect sensor is connected to pin 2 which uses interrupt 0.
+// Configured to trigger on a FALLING state change (transition from HIGH
+// state to LOW state)
+			attachInterrupt(sensorInterrupt, pulseCounter, FALLING);
+		}							
+void loop()
+	{							   
+   if((millis() - oldTime) > 1000)    // Only process counters once per second
+	  { 
+
+  detachInterrupt(sensorInterrupt);
+  // this case) coming from the sensor.
+      flowRate = ((1000.0 / (millis() - oldTime)) * pulseCount) / calibrationFactor;
+	  oldTime = millis();
+	  flowMilliLitres = (flowRate / 60) * 1000;
+// Add the millilitres passed in this second to the cumulative total
+	totalMilliLitres += flowMilliLitres;
+	unsigned int frac;
+							    
+// Print the flow rate for this second in litres / minute
+	Serial.print("Flow rate: ");
+	Serial.print(int(flowRate));  // Print the integer part of the variable
+	Serial.print("L/min");
+	Serial.print("\t"); 		  // Print tab space
+
+// Print the cumulative total of litres flowed since starting
+	Serial.print("Output Liquid Quantity: ");        
+	Serial.print(totalMilliLitres);
+	Serial.println("mL"); 
+	Serial.print("\t"); 		  // Print tab space
+	Serial.print(totalMilliLitres/1000);
+	Serial.print("L");
+	
+
+// Reset the pulse counter so we can start incrementing again
+	pulseCount = 0;
+	
+// Enable the interrupt again now that we've finished sending output
+	attachInterrupt(sensorInterrupt, pulseCounter, FALLING);
+	  }
+}
+
+/*
+Insterrupt Service Routine
+ */
+void pulseCounter()
+{
+  // Increment the pulse counter
+  pulseCount++;
+}
+							</code>
+						</pre>
+					</div>
+					<div style="text-align: center;">
+						<img src="result.png" width="500"><br><br>
+						<h5 class="text-center">Result with given time stamp</h5>
+					</div>
+					<p>For further processing we uploaded this data generating in result of our system to  google cloud services (<span style="color: blue">Firebase</span>). Once this data is uploaded successfully, then there we take decission on the bases of this data and apply some <span style="color: blue">Machine Learning</span> Algorithms which will generate an alert if there is any unwanted result comes into place.</p>
+					<br><br>
+					<div style="text-align: center;">
+						<img src="firebase.png" width="600"><br><br>
+						<h5 class="text-center"></h5>
+					</div>
+				</div>
+			</div>
+		</section>
+		<hr>
+		<section id="CONTACT" style="background-image: url(contact-bg.jpg); height: 100%">
+			<br>
+			<br>
+			<h3 class="text-center">For Suggestion and Feedback Send me an Email</h3>
+			<div class="row">
+				<div class="offset-md-4 col-md-4">
+							<form class="form-group contact-form">
+								
+								<label>Name</label>
+								<input class="form-control" type="text" name="">
+								<label>Email</label>
+								<input class="form-control" type="email" name="">
+								<label>Message</label>
+								<textarea class="form-control" rows="3"></textarea>
+								<br>
+								<button class="btn btn-success btn-block" disabled="">SEND</button>
+							</form>
+				</div>
+				<br><br>
+			</div>
+		</section>
+		<hr>
+		<br><br>
 	</div>
 	
 </body>
